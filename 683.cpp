@@ -11,6 +11,6 @@ int main() {
     int n; string t; cin >> n >> t;
     bool a=1,b=1;
     for(auto e:t) a&=chk(e), b&=!chk(e);
-    if(n==3 && a || n<=3 && b) cout << "hi";
+    if(n==4 && a || n<=4 && b) cout << "hi";
     else cout << "bye";
 }

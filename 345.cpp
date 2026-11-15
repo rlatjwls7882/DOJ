@@ -57,5 +57,5 @@ int main() {
         bmn=min(curMn,bmn);
         bmx=max(curMx,bmx);
     }
-    cout << max(amn*bmn,amx*bmx);
+    cout << max({amn*bmn,amx*bmx,amn*bmx,amx*bmn});
 }

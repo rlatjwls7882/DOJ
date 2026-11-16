@@ -33,15 +33,22 @@ mt19937 rd((unsigned)chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<int> rnd_int(0, 0); // rnd_int(rd)
 uniform_real_distribution<double> rnd_real(0, 1); // rnd_real(rd)
 
+bool notSosu[1'000'001]={1,1};
+
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     int n,q;cin>>n>>q;
+    for(int i=2;i*i<=1'000'000;i++){
+        if(!notSosu[i]){
+            for(int j=i*i;j<=1'000'000;j+=i){
+                notSosu[j]=1;
+            }
+        }
+    }
     while(q--){
         int a;cin>>a;
-        bool isSosu=true;
-        for(int i=2;i*i<=a;i++)if(a%i==0)isSosu=false;
         if(n==1)cout<<"0\n";
-        else if(a!=1&&(a*2<=n||!isSosu))cout<<"2\n";
+        else if(a!=1&&(a*2<=n||notSosu[a]))cout<<"2\n";
         else cout<<"1\n";
     }
 }
